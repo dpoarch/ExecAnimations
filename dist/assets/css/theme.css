@@ -13791,5 +13791,262 @@ pre[class*="language-"] {
     transform: scale(1); } }
 
 /** End of Testimonies **/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.animate-steps-header {
+  -webkit-animation: fadeIn 2s;
+  animation: fadeIn 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+.animate-steps-description {
+  -webkit-animation: fadeInDown 2s 2s;
+  animation: fadeInDown 2s 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+.animate-steps {
+  -webkit-animation: fadeInRight 2s 6s;
+  animation: fadeInRight 2s 6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes scaleIn {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }
+
+.animate-step-1 {
+  -webkit-animation: scaleIn 2s 2s;
+  animation: scaleIn 2s 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-step-2 {
+  -webkit-animation: scaleIn 2s 4s;
+  animation: scaleIn 2s 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-step-3 {
+  -webkit-animation: scaleIn 2s 6s;
+  animation: scaleIn 2s 6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-step-title-1 {
+  -webkit-animation: fadeInDown 2s 2s;
+  animation: fadeInDown 2s 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-step-title-2 {
+  -webkit-animation: fadeInDown 2s 4s;
+  animation: fadeInDown 2s 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-step-title-3 {
+  -webkit-animation: fadeInDown 2s 6s;
+  animation: fadeInDown 2s 6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes rotateScaleRubber2 {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+    transform-origin: center bottom; }
+  50% {
+    transform: rotate(-10deg); }
+  70% {
+    transform: rotate(3deg); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes rotateScaleRubber2 {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+    transform-origin: center bottom; }
+  50% {
+    transform: rotate(-10deg); }
+  70% {
+    transform: rotate(3deg); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+.animate-create-now {
+  -webkit-animation: rotateScaleRubber2 2s 8s;
+  animation: rotateScaleRubber2 2s 8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+.animate-steps-picture-1 {
+  -webkit-animation: fadeInLeft 2s 4s;
+  animation: fadeInLeft 2s 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-steps-picture-2 {
+  -webkit-animation: fadeInRight 2s 4s;
+  animation: fadeInRight 2s 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-steps-picture-zoom {
+  -webkit-animation: scaleIn 2s 6s;
+  animation: scaleIn 2s 6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+.animate-steps-designs {
+  -webkit-animation: fadeInUp 2s 4s;
+  animation: fadeInUp 2s 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-steps-designs-description {
+  -webkit-animation: fadeInDown 2s 6s;
+  animation: fadeInDown 2s 6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-steps-designs-options-1 {
+  -webkit-animation: fadeInLeft 2s 8s;
+  animation: fadeInLeft 2s 8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animate-steps-designs-options-2 {
+  -webkit-animation: fadeInLeft 2s 10s;
+  animation: fadeInLeft 2s 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes naturalBounce {
+  0% {
+    transform: scale(1, 1) translateY(0); }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0); }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-50px); }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0); }
+  57% {
+    transform: scale(1, 1) translateY(-7px); }
+  64% {
+    transform: scale(1, 1) translateY(0); }
+  100% {
+    transform: scale(1, 1) translateY(0); } }
+
+@keyframes naturalBounce {
+  0% {
+    transform: scale(1, 1) translateY(0); }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0); }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-50px); }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0); }
+  57% {
+    transform: scale(1, 1) translateY(-7px); }
+  64% {
+    transform: scale(1, 1) translateY(0); }
+  100% {
+    transform: scale(1, 1) translateY(0); } }
+
+.animate-purchase-title-jump {
+  margin: 0 auto 0 auto;
+  -webkit-animation: naturalBounce 3s;
+  animation: naturalBounce 3s;
+  transform-origin: bottom;
+  -webkit-animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1); }
 
 /*# sourceMappingURL=theme.css.map */

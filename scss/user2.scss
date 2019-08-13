@@ -1,0 +1,223 @@
+$browser-prefixes:  moz webkit ms o;
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+@mixin prefix($property, $value, $prefixes:$browser-prefixes) {
+    @each $prefix in $prefixes {
+      -#{$prefix}-#{$property}: $value;
+    }
+    #{$property}: $value;
+  }
+@mixin animation($str) {    
+  @include prefix(animation, #{$str});
+  }
+
+@mixin animation-fill($str) {
+    @include prefix(animation-fill-mode, #{$str});
+}
+
+@mixin transition($str) {
+    @include prefix(transition, #{$str});
+}
+
+@mixin transform($str) {
+    @include prefix(transform, #{$str});
+}
+
+@include keyframes(fadeIn) {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+  }
+  
+  .animate-steps-header {      
+    @include animation('fadeIn 2s');
+    @include animation-fill('both');
+}
+
+  
+@include keyframes(fadeInDown) {
+    from {
+        opacity: 0;
+        @include transform(translate3d(0, -100%, 0));
+      }    
+      to {
+        opacity: 1;
+        @include transform('none');
+      }
+  }
+  
+  .animate-steps-description {  
+    @include animation('fadeInDown 2s 2s');
+    @include animation-fill('both');
+  }
+
+
+  
+@include keyframes(fadeInRight) {
+    from {
+      opacity: 0;
+      @include transform(translate3d(100%, 0, 0));
+    }  
+    to {
+      opacity: 1;
+      @include transform('none');
+    }
+  }
+  
+  .animate-steps {  
+    @include animation('fadeInRight 2s 6s');
+    @include animation-fill('both');
+  }
+
+  
+@include keyframes(scaleIn) {
+    from {
+        @include transform(scale(0));
+    }
+    to {
+        @include transform(scale(1));
+    }
+  }
+
+  @mixin animate-step-numbers($from, $to){
+    @for $i from $from to $to {
+      .animate-step-#{$i} {
+          $delay: 2*($i);
+        @include animation('scaleIn 2s #{$delay}s');
+        @include animation-fill('both');
+       }
+    }
+  } 
+  
+  @include animate-step-numbers(1,4);
+
+  @mixin animate-step-titles($from, $to){
+    @for $i from $from to $to {
+      .animate-step-title-#{$i} {
+          $delay: 2*($i);
+        @include animation('fadeInDown 2s #{$delay}s');
+        @include animation-fill('both');
+       }
+    }
+  } 
+  
+  @include animate-step-titles(1,4);
+
+    
+@include keyframes(rotateScaleRubber2) {
+    from {
+        opacity: 0;        
+        @include transform(scale(0.1) rotate(30deg));
+        @include prefix(transform-origin, center bottom );
+        transform-origin: center bottom;
+    }
+    50% {
+        @include transform(rotate(-10deg));
+    }
+    70% {
+        @include transform(rotate(3deg));
+    }
+    to {
+        opacity: 1;
+        @include transform(scale(1));
+    }
+  }
+  
+  
+  .animate-create-now {  
+    @include animation('rotateScaleRubber2 2s 8s');
+    @include animation-fill('both');
+  }
+
+  
+  @include keyframes(fadeInLeft) {
+    from {
+        opacity: 0;
+        @include transform(translate3d(-100%, 0, 0));
+      }    
+      to {
+        opacity: 1;
+        @include transform('none');
+      }
+  }
+  
+  .animate-steps-picture-1 {  
+    @include animation('fadeInLeft 2s 4s');
+    @include animation-fill('both');
+  }
+  .animate-steps-picture-2 {  
+    @include animation('fadeInRight 2s 4s');
+    @include animation-fill('both');
+  }
+
+  .animate-steps-picture-zoom {  
+    @include animation('scaleIn 2s 6s');
+    @include animation-fill('both');
+  }
+
+   
+@include keyframes(fadeInUp) {
+    from {
+        opacity: 0;
+        @include transform(translate3d(0, 100%, 0));
+      }    
+      to {
+        opacity: 1;
+        @include transform('none');
+      }
+  }
+  
+  .animate-steps-designs {  
+    @include animation('fadeInUp 2s 4s');
+    @include animation-fill('both');
+  }
+  .animate-steps-designs-description {  
+    @include animation('fadeInDown 2s 6s');
+    @include animation-fill('both');
+  }
+  .animate-steps-designs-options-1 {  
+    @include animation('fadeInLeft 2s 8s');
+    @include animation-fill('both');
+  }
+  .animate-steps-designs-options-2 {  
+    @include animation('fadeInLeft 2s 10s');
+    @include animation-fill('both');
+  }
+
+  @keyframes naturalBounce {
+    0%   { @include transform(scale(1,1) translateY(0)); }
+    10%   { @include transform(scale(1.1,.9) translateY(0)); }
+    30%   { @include transform(scale(.9,1.1) translateY(-50px)); }
+    50%   { @include transform(scale(1.05,.95) translateY(0)); }
+    57%   { @include transform(scale(1,1) translateY(-7px)); }
+    64%   { @include transform(scale(1,1) translateY(0)); }
+    100%   { @include transform(scale(1,1) translateY(0)); }
+}
+
+  
+  .animate-purchase-title-jump {
+    margin: 0 auto 0 auto;
+    @include prefix(animation, naturalBounce 3s);
+    @include prefix(transform-origin, bottom);
+    @include prefix(animation-timing-function, cubic-bezier(0.280, 0.840, 0.420, 1));
+}
