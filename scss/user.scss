@@ -22,27 +22,25 @@ $animation-prefix: -webkit- -moz- -o- -ms-;
     }
 }
 
-@mixin animation($str) {
-    @each $prefix in $animation-prefix {
-        #{$prefix}animation: #{$str};
-        #{$prefix}animation-iteration-count: 1;
+
+@mixin prefix($property, $value, $prefixes:$animation-prefix) {
+    @each $prefix in $prefixes {
+        #{$prefix}#{$property}: $value;
     }
-    animation: #{$str};
+    #{$property}: $value;
+}
+
+@mixin animation($str) {
+    @include prefix(animation, #{$str});
     animation-iteration-count: 1;
 }
 
 @mixin animation-delay($delay) {
-    @each $prefix in $animation-prefix {
-        #{$prefix}animation-delay: #{$delay};
-    }
-    animation-delay: #{$delay};
+    @include prefix(animation-delay, #{$delay});
 }
 
 @mixin transition($str) {
-    @each $prefix in $animation-prefix {
-        #{$prefix}transition: #{$str};
-    }
-    transition: #{$str};
+    @include prefix(transition, #{$str});
 }
 
 @mixin animate-intervals($from, $to, $class, $prop, $delay) {
@@ -53,6 +51,17 @@ $animation-prefix: -webkit- -moz- -o- -ms-;
                 @include animation(#{$prop});
                 @include animation-delay($i* $delay);
             }
+        }
+    }
+}
+
+@mixin animate-delays($name,$from, $to, $interval, $offset:0) {
+    @for $i from $from to $to {
+        .#{$name}-#{$i} {
+            $delay: $interval*($i - $offset);
+            @include prefix(animation-duration, #{$interval}s !important);
+            @include prefix(animation-delay, #{$delay}s !important);
+            @include prefix(animation-fill, both);
         }
     }
 }
@@ -237,6 +246,72 @@ $animation-prefix: -webkit- -moz- -o- -ms-;
     }
 }
 
+@include keyframes(swingFromTop) {
+    0% {
+        transform: rotateX(-100deg);
+        transform-origin: top;
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        transform-origin: top;
+        opacity: 1;
+    }
+}
+
+@include keyframes(textFocusIn){
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@include keyframes(jelloHorizontal) {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/***** Intro */
+
+.jello-horizontal {
+    @include animation(jelloHorizontal both);
+}
+.text-focus-in {
+    @include animation(textFocusIn cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
+}
+.swing-in-top-fwd {
+    @include animation(swingFromTop cubic-bezier(0.175, 0.885, 0.320, 1.275) both);
+}
+
+@include animate-delays(animate-intro, 1, 5, 1);
+
+/***** Steps */
+
+@include animate-delays(animate-steps, 1, 7, 1);
+
 
 /***** Founders */
 
@@ -285,6 +360,9 @@ $animation-prefix: -webkit- -moz- -o- -ms-;
     @include animation('rotateScaleRubber 3s');
 }
 
+/***** Purchase */
+
+@include animate-delays(animate-purchase, 1, 4, 1);
 
 /***** Footer */
 
