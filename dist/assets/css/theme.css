@@ -13954,6 +13954,11 @@ pre[class*="language-"] {
           animation-iteration-count: 1; }
 
 /***** Testimonies */
+/*overwrite ie fixes*/
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+  body .flex-wrap > div {
+    width: auto !important; } }
+
 .rotate-skew {
   -webkit-animation: rotateSkewLeft 2s;
   animation: rotateSkewLeft 2s;
